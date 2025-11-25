@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Program 2 — Advanced Java Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Advanced Java Lab</h1>
+    <img id="profile-photo" src="your-photo.png" alt="Your photo (replace file)" />
+  </header>
+
+  <main class="container">
+    <h2>Program 2 — Java and MsAcess Connections without DSN</h2>
+
+    <section class="program">
+      <h3>Description</h3>
+      <p>Write here the description of the program.</p>
+
+      <h3>Code</h3>
+      <pre class="code-block">
+package  javaapplication4;
+/** * @author cisco */
+import java.sql.*;
+import java.util.*;
+public class  JavaApplication4{
+    public static void main(String args[])
+    {
+        try
+     {
+        // Scanner s=new Scanner(System.in);
+        // System.out.println("Enter values");
+      //   int a=s.nextInt();
+      //   String ss=s.next();
+         Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");         
+          Connection con=DriverManager.getConnection("jdbc:ucanaccess://D:\\vrsec.accdb");
+         Statement st=con.createStatement();
+       //  int c = st.executeUpdate("INSERT INTO emp"
+       // + " (sno, sname)"
+      //  + " VALUES (105, 'ashok')");
+    // int insert = st.executeUpdate("insert into emp values(4,'ramesh')");
+    //  int insertdynamic = st.executeUpdate("insert into emp values("+a+",'"+ss+"')");
+    // int update = st.executeUpdate("update emp set sname='vrsec' where sno=105");
+   //  int delete = st.executeUpdate("delete from emp where sno=4");
+     ResultSet rs=st.executeQuery("select * from it");
+         while(rs.next())
+         {
+                 System.out.println("emp Number is:"+rs.getInt(1));
+                  System.out.println("emp name is:"+rs.getString(2));
+         }     }
+         catch(Exception e)
+         {
+             System.out.println(e.getMessage()); }}}
+
+      </pre>
+
+      <p>
+        <!-- Link to the output page — create output1.html to show the output -->
+        <a class="btn" href="output2.html" target="_blank">View Output (open in new page)</a>
+      </p>
+    </section>
+
+    <p><a href="topic2.html">← Back to Topic</a></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
